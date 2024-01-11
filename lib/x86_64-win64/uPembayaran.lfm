@@ -1,0 +1,145 @@
+object TfrmPembayaran: TTfrmPembayaran
+  Left = 2982
+  Height = 600
+  Top = 389
+  Width = 842
+  Caption = 'Transaksi'
+  ClientHeight = 600
+  ClientWidth = 842
+  Color = clActiveCaption
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 60
+    Height = 40
+    Top = 40
+    Width = 228
+    AutoSize = False
+    Caption = 'Transaksi Penjualan'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -24
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 60
+    Height = 202
+    Top = 132
+    Width = 712
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    DefaultRowHeight = 29
+    TabOrder = 0
+  end
+  object DBGrid2: TDBGrid
+    Left = 60
+    Height = 188
+    Top = 368
+    Width = 712
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource2
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 470
+    Height = 32
+    Top = 90
+    Width = 302
+    BevelOuter = bvNone
+    ChildSizing.EnlargeHorizontal = crsScaleChilds
+    ChildSizing.EnlargeVertical = crsScaleChilds
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 100
+    ClientHeight = 32
+    ClientWidth = 302
+    DataSource = DataSource2
+    OnClick = DBNavigator1Click
+    Options = []
+    ParentShowHint = False
+    TabOrder = 2
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert]
+  end
+  object BCari: TButton
+    Left = 250
+    Height = 32
+    Top = 90
+    Width = 94
+    Caption = 'Search'
+    TabOrder = 3
+    OnClick = BCariClick
+  end
+  object ECari: TEdit
+    Left = 60
+    Height = 28
+    Top = 94
+    Width = 172
+    TabOrder = 4
+  end
+  object BReset: TButton
+    Left = 362
+    Height = 32
+    Top = 90
+    Width = 94
+    Caption = 'Reset'
+    TabOrder = 5
+    OnClick = BResetClick
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    OnUpdateData = FormCreate
+    Left = 80
+    Top = 230
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    Left = 80
+    Top = 460
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 170
+    Top = 230
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 260
+    Top = 230
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 350
+    Top = 230
+  end
+  object SQLQuery2: TSQLQuery
+    PacketRecords = 1
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    UpdateMode = upWhereAll
+    Left = 170
+    Top = 460
+  end
+end

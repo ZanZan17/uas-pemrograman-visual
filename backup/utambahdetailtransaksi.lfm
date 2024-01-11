@@ -1,0 +1,246 @@
+object TfrmTambahDetailTransaksi: TTfrmTambahDetailTransaksi
+  Left = 529
+  Height = 315
+  Top = 270
+  Width = 672
+  Caption = 'Tambah Detail Transaksi'
+  ClientHeight = 315
+  ClientWidth = 672
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 180
+    Height = 37
+    Top = 40
+    Width = 311
+    Caption = 'Tambah Detail Transaksi'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -27
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 133
+    Height = 20
+    Top = 113
+    Width = 79
+    Caption = 'Pilih Barang'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 133
+    Height = 20
+    Top = 160
+    Width = 97
+    Caption = 'Jumlah Barang'
+    ParentColor = False
+  end
+  object EJumlah: TEdit
+    Left = 280
+    Height = 28
+    Top = 160
+    Width = 213
+    TabOrder = 0
+    TextHint = 'Jumlah Barang'
+  end
+  object DBLookupBarang: TDBLookupComboBox
+    Left = 280
+    Height = 28
+    Top = 113
+    Width = 213
+    DataField = 'id'
+    DataSource = DataSourcePilihBarang
+    KeyField = 'id'
+    ListField = 'nama'
+    ListFieldIndex = 0
+    ListSource = DataSourcePilihBarang
+    LookupCache = False
+    OnChange = DBLookupBarangChange
+    TabOrder = 1
+  end
+  object BTambahDetailTransaksi: TButton
+    Left = 280
+    Height = 32
+    Top = 213
+    Width = 213
+    Caption = 'Tambah'
+    TabOrder = 2
+    OnClick = BTambahDetailTransaksiClick
+  end
+  object SQLQueryPilihBarang: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'nama'
+        DataType = ftWideString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'kategori_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'harga_beli'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'harga_jual'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'stok'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM data_barang;'
+    )
+    Params = <>
+    Macros = <>
+    Left = 587
+    Top = 227
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 587
+    Top = 153
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 587
+    Top = 80
+  end
+  object DataSourcePilihBarang: TDataSource
+    DataSet = SQLQueryPilihBarang
+    Left = 587
+    Top = 13
+  end
+  object SQLQuery2: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 67
+    Top = 233
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    Left = 67
+    Top = 167
+  end
+  object frReport1: TfrReport
+    Dataset = frDBDataSet1
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    DataType = dtDataSet
+    Left = 67
+    Top = 20
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = SQLQuery1
+    Left = 67
+    Top = 93
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'customer'
+        DataType = ftWideString
+        Precision = -1
+        Size = 30
+      end    
+      item
+        Name = 'tanggal_transaksi'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'jumlah'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'diskon_beli_barang'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'diskon_transaksi'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'sub_total'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'total'
+        DataType = ftFloat
+        Precision = -1
+      end    
+      item
+        Name = 'harga_beli'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'harga_jual'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'nama_barang'
+        DataType = ftWideString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'kategori'
+        DataType = ftWideString
+        Precision = -1
+        Size = 50
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT dt.id, t.customer, t.tanggal as tanggal_transaksi, dt.jumlah, dt.diskon as diskon_beli_barang, t.diskon as diskon_transaksi, t.sub_total, t.total, db.harga_beli, db.harga_jual, db.nama as nama_barang, k.nama as kategori FROM detail_transaksi as dt JOIN data_barang as db ON db.id = dt.barang_id JOIN kategori as k ON k.id = db.kategori_id JOIN transaksi as t ON dt.transaksi_id = t.id'
+      ''
+    )
+    Params = <>
+    Macros = <>
+    Left = 200
+    Top = 233
+  end
+end

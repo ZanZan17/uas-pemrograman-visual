@@ -1,0 +1,74 @@
+object TfrmTambahCategory: TTfrmTambahCategory
+  Left = 3375
+  Height = 416
+  Top = 438
+  Width = 620
+  Caption = 'Tambah Kategori'
+  ClientHeight = 416
+  ClientWidth = 620
+  Color = clActiveCaption
+  DesignTimePPI = 120
+  LCLVersion = '3.0.0.3'
+  object EKategori: TEdit
+    Left = 200
+    Height = 28
+    Top = 100
+    Width = 221
+    Alignment = taCenter
+    TabOrder = 0
+    TextHint = 'Kategori'
+  end
+  object Label1: TLabel
+    Left = 200
+    Height = 38
+    Top = 30
+    Width = 224
+    Caption = 'Tambah Kategori'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -28
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BtnTambahKategori: TButton
+    Left = 200
+    Height = 32
+    Top = 155
+    Width = 221
+    Caption = 'Submit'
+    TabOrder = 1
+    OnClick = BtnTambahKategoriClick
+  end
+  object SQLQueryKategori: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 230
+    Top = 270
+  end
+  object DataSourceKatagori: TDataSource
+    DataSet = SQLQueryKategori
+    Left = 370
+    Top = 270
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 510
+    Top = 270
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 80
+    Top = 270
+  end
+end

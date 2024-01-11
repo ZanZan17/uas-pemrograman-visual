@@ -1,0 +1,105 @@
+object TfrmSign: TTfrmSign
+  Left = 2553
+  Height = 298
+  Top = 263
+  Width = 366
+  Caption = 'Login'
+  ClientHeight = 298
+  ClientWidth = 366
+  Color = clActiveCaption
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 152
+    Height = 30
+    Top = 24
+    Width = 70
+    Caption = 'Sign in'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -22
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BLogin: TButton
+    Left = 96
+    Height = 26
+    Top = 184
+    Width = 75
+    Caption = 'Login'
+    TabOrder = 0
+    OnClick = BLoginClick
+  end
+  object Label2: TLabel
+    Left = 96
+    Height = 15
+    Top = 64
+    Width = 53
+    Caption = 'Username'
+    Color = clWhite
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object Label3: TLabel
+    Left = 99
+    Height = 15
+    Top = 120
+    Width = 50
+    Caption = 'Password'
+    ParentColor = False
+  end
+  object EUsername: TEdit
+    Left = 96
+    Height = 23
+    Top = 88
+    Width = 176
+    TabOrder = 1
+    TextHint = 'Username'
+    OnChange = EUsernameChange
+  end
+  object EPassword: TEdit
+    Left = 96
+    Height = 23
+    Top = 144
+    Width = 177
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 2
+    TextHint = 'Password'
+  end
+  object BExit: TButton
+    Left = 198
+    Height = 26
+    Top = 184
+    Width = 75
+    Caption = 'Exit'
+    TabOrder = 3
+    OnClick = BExitClick
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 248
+    Top = 232
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 96
+    Top = 232
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 176
+    Top = 232
+  end
+end

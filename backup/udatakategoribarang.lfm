@@ -1,0 +1,121 @@
+object TfrmDataKategoriBarang: TTfrmDataKategoriBarang
+  Left = 382
+  Height = 403
+  Top = 250
+  Width = 547
+  Caption = 'Data Kategori'
+  ClientHeight = 403
+  ClientWidth = 547
+  DesignTimePPI = 120
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object DBGridKategori: TDBGrid
+    Left = 60
+    Height = 227
+    Top = 120
+    Width = 427
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSourceKatagori
+    TabOrder = 0
+    OnCellClick = DBGridKategoriCellClick
+  end
+  object Label1: TLabel
+    Left = 160
+    Height = 37
+    Top = 20
+    Width = 278
+    Caption = 'Data Kategori Barang'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -27
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BtnDelete: TButton
+    Left = 60
+    Height = 30
+    Top = 360
+    Width = 120
+    Caption = 'Hapus'
+    TabOrder = 1
+    OnClick = BtnDeleteClick
+  end
+  object BtnCari: TButton
+    Left = 233
+    Height = 32
+    Top = 78
+    Width = 120
+    Caption = 'Cari'
+    TabOrder = 2
+    OnClick = BtnCariClick
+  end
+  object ECari: TEdit
+    Left = 60
+    Height = 28
+    Top = 78
+    Width = 153
+    TabOrder = 3
+    TextHint = 'Cari'
+  end
+  object BtnReset: TButton
+    Left = 367
+    Height = 32
+    Top = 78
+    Width = 120
+    Caption = 'Reset'
+    TabOrder = 4
+    OnClick = BtnResetClick
+  end
+  object BtnAddKategori: TButton
+    Left = 367
+    Height = 30
+    Top = 360
+    Width = 120
+    Caption = 'Tambah'
+    TabOrder = 5
+    OnClick = BtnAddKategoriClick
+  end
+  object BtnUpdate: TButton
+    Left = 213
+    Height = 32
+    Top = 360
+    Width = 120
+    Caption = 'Update'
+    TabOrder = 6
+    OnClick = BtnUpdateClick
+  end
+  object SQLQueryKategori: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 160
+    Top = 153
+  end
+  object DataSourceKatagori: TDataSource
+    DataSet = SQLQueryKategori
+    Left = 333
+    Top = 153
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 160
+    Top = 233
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 333
+    Top = 233
+  end
+end

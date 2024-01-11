@@ -1,0 +1,73 @@
+object TfrmUpdateKategori: TTfrmUpdateKategori
+  Left = 2677
+  Height = 367
+  Top = 438
+  Width = 515
+  Caption = 'Update Kategori'
+  ClientHeight = 367
+  ClientWidth = 515
+  Color = clActiveCaption
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object EKategori: TEdit
+    Left = 136
+    Height = 23
+    Top = 80
+    Width = 248
+    TabOrder = 0
+    TextHint = 'Kategori'
+  end
+  object Label1: TLabel
+    Left = 176
+    Height = 30
+    Top = 32
+    Width = 172
+    Caption = 'Update Kategori'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -22
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object BtnUpdateKategori: TButton
+    Left = 232
+    Height = 32
+    Top = 112
+    Width = 56
+    Caption = 'Submit'
+    TabOrder = 1
+    OnClick = BtnUpdateKategoriClick
+  end
+  object SQLQueryKategori: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 144
+    Top = 208
+  end
+  object DataSourceKatagori: TDataSource
+    DataSet = SQLQueryKategori
+    Left = 352
+    Top = 208
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 352
+    Top = 144
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 144
+    Top = 152
+  end
+end

@@ -1,0 +1,71 @@
+object TfrmMain: TTfrmMain
+  Left = 2550
+  Height = 383
+  Top = 500
+  Width = 507
+  Caption = 'Main Menu'
+  ClientHeight = 383
+  ClientWidth = 507
+  Color = clActiveCaption
+  Menu = Produk
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object LNS: TLabel
+    Left = 224
+    Height = 30
+    Top = 104
+    Width = 54
+    Caption = 'QhoF'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -22
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Visible = False
+    OnClick = LNSClick
+  end
+  object Produk: TMainMenu
+    Left = 240
+    Top = 160
+    object MenuFile: TMenuItem
+      Caption = 'File'
+      object MenuLogin: TMenuItem
+        Caption = 'Login'
+        OnClick = MenuLoginClick
+      end
+      object MenuLogout: TMenuItem
+        Caption = 'Logout'
+        OnClick = MenuLogoutClick
+      end
+      object MenuExit: TMenuItem
+        Caption = 'Exit'
+        OnClick = MenuExitClick
+      end
+    end
+    object MenuDataMaster: TMenuItem
+      Caption = 'Data Master'
+      object MenuDataBarang: TMenuItem
+        Caption = 'Data Barang'
+        OnClick = MenuDataBarangClick
+      end
+      object MenuDataKategoriBarang: TMenuItem
+        Caption = 'Data Kategori Barang'
+        OnClick = MenuDataKategoriBarangClick
+      end
+      object MenuDataCustomer: TMenuItem
+        Caption = 'Data Customer'
+        OnClick = MenuDataCustomerClick
+      end
+    end
+    object MenuTransaksi: TMenuItem
+      Caption = 'Transaksi'
+      OnClick = MenuTransaksiClick
+    end
+    object MenuLaporan: TMenuItem
+      Caption = 'Laporan'
+      OnClick = MenuLaporanClick
+    end
+  end
+end

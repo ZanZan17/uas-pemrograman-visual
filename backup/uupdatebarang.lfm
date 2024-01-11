@@ -1,0 +1,260 @@
+object TfrmUpdateBarang: TTfrmUpdateBarang
+  Left = 2763
+  Height = 638
+  Top = 349
+  Width = 594
+  Caption = 'Update Barang'
+  ClientHeight = 638
+  ClientWidth = 594
+  Color = clActiveCaption
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object Label1: TLabel
+    Left = 226
+    Height = 30
+    Top = 24
+    Width = 158
+    Caption = 'Update Produk'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -22
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 184
+    Height = 15
+    Top = 136
+    Width = 32
+    Caption = 'Nama'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 184
+    Height = 15
+    Top = 200
+    Width = 44
+    Caption = 'Kategori'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 184
+    Height = 15
+    Top = 264
+    Width = 54
+    Caption = 'Harga Beli'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 184
+    Height = 15
+    Top = 328
+    Width = 55
+    Caption = 'Harga Jual'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 184
+    Height = 15
+    Top = 400
+    Width = 29
+    Caption = 'Stock'
+    ParentColor = False
+  end
+  object ENama: TEdit
+    Left = 184
+    Height = 23
+    Top = 160
+    Width = 241
+    TabOrder = 0
+  end
+  object EHargaBeli: TEdit
+    Left = 184
+    Height = 23
+    Top = 288
+    Width = 242
+    TabOrder = 1
+  end
+  object EHargaJual: TEdit
+    Left = 184
+    Height = 23
+    Top = 352
+    Width = 241
+    TabOrder = 2
+  end
+  object EJumlahStok: TEdit
+    Left = 184
+    Height = 23
+    Top = 424
+    Width = 241
+    TabOrder = 3
+  end
+  object BSimpan: TButton
+    Left = 264
+    Height = 26
+    Top = 472
+    Width = 98
+    Caption = 'Simpan'
+    TabOrder = 4
+    OnClick = BSimpanClick
+  end
+  object DBLookupkategori: TDBLookupComboBox
+    Left = 184
+    Height = 23
+    Top = 224
+    Width = 242
+    DataField = 'id'
+    DataSource = DataSource1
+    KeyField = 'id'
+    ListField = 'nama'
+    ListFieldIndex = 0
+    ListSource = DataSource1
+    LookupCache = False
+    TabOrder = 5
+  end
+  object Label7: TLabel
+    Left = 184
+    Height = 15
+    Top = 72
+    Width = 11
+    Caption = 'ID'
+    ParentColor = False
+    OnClick = Label7Click
+  end
+  object DBLookupId: TDBLookupComboBox
+    Left = 184
+    Height = 23
+    Top = 96
+    Width = 240
+    DataField = 'id'
+    DataSource = DataSource3
+    KeyField = 'id'
+    ListField = 'id'
+    ListFieldIndex = 0
+    ListSource = DataSource3
+    LookupCache = False
+    OnEditingDone = DBLookupIdChange
+    OnSelect = DBLookupIdChange
+    TabOrder = 6
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    Left = 488
+    Top = 40
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'nama'
+        DataType = ftWideString
+        Precision = -1
+        Size = 50
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM kategori;'
+    )
+    RefreshSQL.Strings = (
+      'SELECT * FROM kategori;'
+    )
+    Params = <>
+    Macros = <>
+    MacroCheck = True
+    Left = 488
+    Top = 158
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'transaksi'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    ConnectorType = 'ODBC'
+    Left = 488
+    Top = 216
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLConnector1
+    Left = 72
+    Top = 216
+  end
+  object SQLQuery2: TSQLQuery
+    FieldDefs = <>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 72
+    Top = 280
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    Left = 488
+    Top = 100
+  end
+  object DataSource3: TDataSource
+    DataSet = SQLQuery3
+    Left = 72
+    Top = 364
+  end
+  object SQLQuery3: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    MaxIndexesCount = 4
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'nama'
+        DataType = ftWideString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'kategori_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'harga_beli'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'harga_jual'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'stok'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = SQLConnector1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'SELECT * FROM data_barang'
+    )
+    RefreshSQL.Strings = (
+      'SELECT * FROM data_barang;'
+    )
+    Params = <>
+    Macros = <>
+    Left = 72
+    Top = 428
+  end
+end
