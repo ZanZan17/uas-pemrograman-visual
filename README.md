@@ -1,6 +1,6 @@
-<p>Nama : Ridho Pikriyansyah</p>
+<p>Nama  : Fauzhan Qhof Pratama</p>
 <p>Kelas : TI.21.A.3</p>
-<p>Nim : 312110169</p>
+<p>NIM   : 312110484</p>
 
 ### Demo ###
-https://youtu.be/f_dsJA5dwsM?si=ufNQjw6a8nMTbWXE
+https://youtu.be/t4gpkNTnHAk
